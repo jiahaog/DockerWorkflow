@@ -1,7 +1,5 @@
 sudo: required
 
-language: ruby
-
 services:
   - docker
 
@@ -10,10 +8,9 @@ before_install:
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
   - sudo service docker restart ; sleep 5 # https://github.com/travis-ci/travis-ci/issues/4778
-
-script:
   - docker-compose up -d
   - docker ps -a
+
+script:
   - docker build -t tester tester
   - docker run --link dockerworkflow_web-server_1:server tester
-  - docker ps -a
