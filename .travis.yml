@@ -11,6 +11,5 @@ before_install:
   - sudo mv docker-compose /usr/local/bin
 
 script:
-  - docker-compose run -d --no-deps web
+  - docker-compose up -d
   - cd app; mocha
-  
