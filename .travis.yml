@@ -14,3 +14,10 @@ before_install:
 script:
   - docker build -t tester tester
   - docker run --link dockerworkflow_web-server_1:server tester
+
+deploy:
+  provider: script
+  script: curl -H "Content-Type: application/json" --data '{"build": true}' -X POST https://registry.hub.docker.com/u/jiahaog/dockerworkflow/trigger/7fe77621-a35a-4302-bc7d-b78ca1649263/
+  on:
+    branch: master
+    
