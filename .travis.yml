@@ -15,5 +15,5 @@ script:
   - docker-compose up -d
   - docker ps -a
   - docker build -t tester tester
-  - docker run -d --link dockerworkflow_web-server_1:server tester
+  - docker run --link dockerworkflow_web-server_1:server tester
   - docker ps -a
