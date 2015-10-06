@@ -12,4 +12,6 @@ before_install:
 
 script:
   - docker-compose up -d
-  - cd app; mocha
+  - docker build -t tester tester
+  - docker run -d -p 127.0.0.1:80:3000 tester 
+  - docker ps -a
