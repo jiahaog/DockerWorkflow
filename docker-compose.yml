@@ -1,4 +1,4 @@
-web:
+web-server:
   build: ./app
   volumes:
     - "app:/src/app"
